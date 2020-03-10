@@ -4,36 +4,67 @@ public class Calculator {
         InputBuffer inputConsole = new InputBuffer();
         String userStr = inputConsole.getUserInput();
 
-        int a;
-        int b;
-        int result = 0;
+        double a;
+        double b;
+        double result = 0;
 
-        // Numbers
-        String s = userStr.substring(0,1);
-        a = Integer.parseInt(s);
 
-        String s2 = userStr.substring(2,3);
-        b = Integer.parseInt(s2);
+        int len = userStr.length();
 
-        // Operation
-        String opr = userStr.substring(1,2);
+        boolean gotPlus = userStr.contains("+");
+        boolean gotMinus = userStr.contains("-");
+        boolean gotMultiply = userStr.contains("*");
+        boolean gotDivision = userStr.contains("/");
 
-        switch (opr) {
-            case "+":
-                result = a + b;
-                break;
-            case "-":
-                result = a - b;
-                break;
-            case "x":
-                result = a * b;
-                break;
-            case "/":
-                result = a / b;
-                break;
-            default:
-                System.out.println("Error..");
-            }
+        if(gotPlus == true) {
+            int index = userStr.indexOf("+");
+            //number 1
+            String s = userStr.substring(0,index);
+            a = Integer.parseInt(s);
+            //number 2
+            String s2 = userStr.substring(index+1, len);
+            b = Integer.parseInt(s2);
+
+            result = a + b;
+        }
+
+        if(gotMinus == true) {
+            int index = userStr.indexOf("-");
+            //number 1
+            String s = userStr.substring(0,index);
+            a = Integer.parseInt(s);
+            //number 2
+            String s2 = userStr.substring(index+1, len);
+            b = Integer.parseInt(s2);
+
+            result = a - b;
+        }
+
+        if(gotMultiply == true) {
+            int index = userStr.indexOf("*");
+            //number 1
+            String s = userStr.substring(0,index);
+            a = Integer.parseInt(s);
+            //number 2
+            String s2 = userStr.substring(index+1, len);
+            b = Integer.parseInt(s2);
+
+            result = a * b;
+        }
+
+        if(gotDivision == true) {
+            int index = userStr.indexOf("/");
+            //number 1
+            String s = userStr.substring(0,index);
+            a = Integer.parseInt(s);
+            //number 2
+            String s2 = userStr.substring(index+1, len);
+            b = Integer.parseInt(s2);
+
+            result = a / b;
+        }
+
+
 
         System.out.println(result);
 
