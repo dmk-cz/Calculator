@@ -6,6 +6,7 @@ public class Calculator {
 
         double a;
         double b;
+        double result = 0;
 
 
         int len = userStr.length();
